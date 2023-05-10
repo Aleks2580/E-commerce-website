@@ -12,7 +12,7 @@ export default function WishList() {
   const [wishList, setWishList] = useState();
   useEffect(() => {
     (async function () {
-      const response = await fetch("http://localhost:4000/display-wishlist", {
+      const response = await fetch("/display-wishlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

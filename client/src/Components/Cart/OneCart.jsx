@@ -20,7 +20,7 @@ export default function OneCart({ el }) {
 
   const deleteHandler = async (event) => {
     console.log("click!!!!");
-    const response = await fetch("http://localhost:4000/display-cart", {
+    const response = await fetch("/display-cart", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

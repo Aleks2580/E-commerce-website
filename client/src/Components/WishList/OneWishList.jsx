@@ -23,7 +23,7 @@ export default function OneWishList({ el }) {
   const likeHandler = async (event) => {
     setLikeFill(!likeFill);
     const response = await fetch(
-      "http://localhost:4000/delete-item-from-wish-list",
+      "/delete-item-from-wish-list",
       {
         method: "DELETE",
         headers: {
@@ -38,7 +38,7 @@ export default function OneWishList({ el }) {
 
   const cartHandler = async (event) => {
     const response = await fetch(
-      "http://localhost:4000/delete-item-from-wish-list-cart",
+      "/delete-item-from-wish-list-cart",
       {
         method: "POST",
         headers: {

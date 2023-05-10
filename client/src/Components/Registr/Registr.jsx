@@ -18,7 +18,7 @@ const RegistrPage = () => {
 
   const handleRegistr = async(e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:4000/registr', {
+    const res = await fetch('/registr', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

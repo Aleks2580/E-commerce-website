@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   const handleLogout = async (e) => {
-    const res = await fetch("http://localhost:4000/logout", {
+    const res = await fetch("/logout", {
       method: "GET",
       credentials: "include",
     });
@@ -54,7 +54,7 @@ const Navbar = () => {
 
   useEffect(() => {
     (async function toBack() {
-      const response = await fetch("http://localhost:4000/add-item-to-cart", {
+      const response = await fetch("/add-item-to-cart", {
         method: "DELETE", //SUPPOSED TO BE ANOTHER ROUTES, DID HAVE TIME TO WRITE ANOTHER ONE
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const Navbar = () => {
       <Space className={styles.header} direction="vertical">
         <div className={styles.logo}>
           <Link to="/">
-            <span className={styles.logo_base}>AliElbrus</span>
+            <span className={styles.logo_base}>E-market</span>
           </Link>
         </div>
 
@@ -150,7 +150,7 @@ const Navbar = () => {
             )}
           </div>
           <div>
-            <span>My AliElbrus</span>
+            <span>My E-market</span>
           </div>
         </div>
       </Space>

@@ -6,7 +6,7 @@ async function seedAdmin() {
   return [
     {
       login: 'admin',
-      email: 'admin@alielbrus.com',
+      email: 'admin@e-market.com',
       password: hash,
       status: 'admin',
       createdAt: new Date(),
@@ -14,7 +14,7 @@ async function seedAdmin() {
     },
     {
       login: 'Stepa',
-      email: 'stepa@alielbrus.com',
+      email: 'stepa@e-market.com',
       password: hash,
       status: 'seller',
       createdAt: new Date(),
@@ -22,7 +22,7 @@ async function seedAdmin() {
     },
     {
       login: 'Maksik',
-      email: 'Maksik@alielbrus.com',
+      email: 'Maksik@e-market.com',
       password: hash,
       status: 'buyer',
       createdAt: new Date(),

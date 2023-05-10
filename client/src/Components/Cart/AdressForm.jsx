@@ -23,7 +23,7 @@ const AdressForm = () => {
   const orderHandler = async () => {
 
     const key = 'updatable';
-    const response = await fetch("http://localhost:4000/create-order", {
+    const response = await fetch("/create-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

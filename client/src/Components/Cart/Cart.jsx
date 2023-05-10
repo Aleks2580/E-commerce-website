@@ -13,7 +13,7 @@ export default function Cart() {
 
   useEffect(() => {
     (async function () {
-      const response = await fetch("http://localhost:4000/display-cart", {
+      const response = await fetch("/display-cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

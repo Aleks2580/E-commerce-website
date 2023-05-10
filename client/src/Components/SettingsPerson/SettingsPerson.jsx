@@ -50,7 +50,7 @@ export default function SettingsPerson() {
 
   useEffect(() => {
     (async function () {
-      const userFindBack = await fetch("http://localhost:4000/find-slider", {
+      const userFindBack = await fetch("/find-slider", {
         method: "GET",
         credentials: "include",
       });

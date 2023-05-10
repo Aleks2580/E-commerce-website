@@ -54,7 +54,7 @@ export default function AdminCabinet() {
     });
     setTimeout(() => {
       message.success({
-        content: 'Your item have been added, thank you!',
+        content: 'Your item has been added, thank you!',
         key,
         duration: 2,
       });
@@ -74,7 +74,7 @@ export default function AdminCabinet() {
         {/* <div style={{display: 'flex', justifyContent: 'center'}}>
         <img style={{width: '30px', height: '30px'}} src='/img/ok.png' alt='ok'/>
         </div> */}
-        <div style={{color: 'green', fontSize: '23px', marginLeft: '0px'}}>Your items have been added!</div>
+        <div style={{color: 'green', fontSize: '23px', marginLeft: '0px'}}>Your items has been added!</div>
       </div>
     ) : (
 <div style={{ display: "flex", flexDirection: "column", width: "300px", marginLeft: '110px' }}>

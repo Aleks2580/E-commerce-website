@@ -26,7 +26,7 @@ export default function SearchRenderOneCard({ el }) {
       setLikeFill(!likeFill);
       console.log("like!!");
       const response = await fetch(
-        "http://localhost:4000/add-item-to-wish-list",
+        "/add-item-to-wish-list",
         {
           method: "POST",
           headers: {
@@ -41,7 +41,7 @@ export default function SearchRenderOneCard({ el }) {
     if (likeFill) {
       setLikeFill(!likeFill);
       const response = await fetch(
-        "http://localhost:4000/delete-item-from-wish-list",
+        "/delete-item-from-wish-list",
         {
           method: "DELETE",
           headers: {
@@ -56,7 +56,7 @@ export default function SearchRenderOneCard({ el }) {
 
   const cartHandler = async (event) => {
     //setItemId(+event.target.parentNode.parentNode.id);
-    const response = await fetch("http://localhost:4000/add-item-to-cart", {
+    const response = await fetch("/add-item-to-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

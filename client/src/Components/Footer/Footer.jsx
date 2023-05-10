@@ -140,7 +140,7 @@ export default function FooterPage() {
         className="footer-copywrite"
       >
         <div style={{ height: "25px" }} className="container">
-          ©️2022 Ali-Elbrus. All rights reserved.
+          ©️2022 E-market. All rights reserved.
         </div>
       </div>
     </section>

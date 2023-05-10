@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const userFindBack = await fetch('http://localhost:4000/check', {
+      const userFindBack = await fetch('/check', {
         method: 'GET',
         credentials: 'include',
       });

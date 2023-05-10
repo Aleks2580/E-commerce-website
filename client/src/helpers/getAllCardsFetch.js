@@ -1,5 +1,5 @@
 export async function getAllCardsFetch(categoryId) {
-  const res = await fetch(`http://localhost:4000/get-items/${categoryId}`,
+  const res = await fetch(`/get-items/${categoryId}`,
    {
     credentials: "include"
    }

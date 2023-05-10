@@ -33,7 +33,7 @@ export default function Person() {
           icon={<UserOutlined />}
         />
       </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", flexWrap: 'wrap' }}>
         <p style={{ fontWeight: "bold", fontSize: "17px" }}>Hi, {user.login}</p>
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -50,7 +50,7 @@ export default function Person() {
         <div className={style.bottomBlock}>
           <div className={style.bottomFirst}>
             <p className={style.exc}>Exclusive offers</p>
-            <p className={style.newMem}>Just for new AliElbrus members!</p>
+            <p className={style.newMem}>Just for new E-market members!</p>
             <p className={style.newPrice}>for $1:</p>
           </div>
           <div className={style.bottomSecond}></div>
@@ -75,7 +75,7 @@ export default function Person() {
         />
       </div>
       <div style={{ display: "flex", justifyContent: "center",  }}>
-        <p style={{ fontWeight: "bold", fontSize: "17px" }}>Welcome to AliElbrus</p>
+        <p style={{ fontWeight: "bold", fontSize: "17px" }}>Welcome to E-market</p>
       </div>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
       <Button onClick={() => modalPageHandler(true)} className={style.btnClick}   shape="round" htmlType="submit">

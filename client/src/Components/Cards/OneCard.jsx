@@ -31,7 +31,7 @@ export default function OneCard({ el }) {
       setLikeFill(!likeFill);
       console.log("like!!");
       const response = await fetch(
-        "http://localhost:4000/add-item-to-wish-list",
+        "/add-item-to-wish-list",
         {
           method: "POST",
           headers: {
@@ -47,7 +47,7 @@ export default function OneCard({ el }) {
     if (likeFill) {
       setLikeFill(!likeFill);
       const response = await fetch(
-        "http://localhost:4000/delete-item-from-wish-list",
+        "/delete-item-from-wish-list",
         {
           method: "DELETE",
           headers: {
@@ -65,7 +65,7 @@ export default function OneCard({ el }) {
   const cartHandler = async (event) => {
     console.log("user_id", user_id);
     //setItemId(+event.target.parentNode.parentNode.id);
-    const response = await fetch("http://localhost:4000/add-item-to-cart", {
+    const response = await fetch("/add-item-to-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

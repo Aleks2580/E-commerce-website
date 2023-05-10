@@ -44,7 +44,7 @@ export default function ItemCard() {
   }
   console.log(333444);
   const cartHandler = async () => {
-    const response = await fetch("http://localhost:4000/add-many-item-to-cart", {
+    const response = await fetch("/add-many-item-to-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,24 +92,7 @@ export default function ItemCard() {
           )}
         </span>
         <div style={{ marginTop: "20px" }}>
-          Comments:
-          <p>
-            I 've been very fond of computers in the family, but I 've been in
-            one volume in the past, but the performance is very good. Good, face
-            value is fine, and all kinds of games are full. 22 Oct 2022 04:42
-          </p>
-          <p>
-            Very Good, The Courier is very fast, the computer is new, mouse pad,
-            mouse, bag also sent, it's very good, the computer is very good. 22
-            Oct 2022 04:44
-          </p>
-          <p>
-            The computer is very cool, the execution does not break at all, the
-            view is very good, mainly because this screen is really, really
-            loved, its own system software, which is particularly good feeling
-            without a border, is very convenient to use. This purchase is very
-            satisfactory. 22 Oct 2022 04:46
-          </p>
+                  
         </div>
       </div>
     ),
@@ -122,17 +105,10 @@ export default function ItemCard() {
         }}
       >
         <div style={{ width: "440px" }}>
-          Brand Name: BMAXPort: 2*USB3.0Video Memory Capacity: 8GBDisplay Size:
-          13.3"Display Ratio: 16:9Type: UltraslimDimensions (WxHxD):
-          317mm*215mm*20.0mmOperating System: Windows 10Origin: Mainland
-          ChinaGraphics
+          
         </div>
         <div style={{ width: "440px" }}>
-          Card Model: Intel UHD 605Hard Drive Type: MixureScreen Refresh Rate:
-          60HzHard Drive Capacity: 128GBWeight (Battery Included): ＜1.5KgCPU
-          Brand/Model: Intel Celeron N3350Panel Type: IPSRAM: 8GBBody Material:
-          AluminiumThickness: 15mm- 18mmFeature: bluetoothDisplay resolution:
-          1920x1080
+          
         </div>
       </div>
     ),
@@ -151,7 +127,7 @@ export default function ItemCard() {
   return (
     <div
       className="itemCard"
-      style={{ justifyContent: "center", display: "flex", marginTop: "20px" }}
+      style={{ justifyContent: "center", display: "flex", marginTop: "20px", minWidth: '900px' }}
     >
       <div style={{ display: "flex", flexDirection: "column", width: "65%", minWidth: '900px' }}>
         <div
@@ -159,7 +135,7 @@ export default function ItemCard() {
           style={{
             display: "flex",
             flexDirection: "row",
-            alignContent: "center ",
+            alignContent: "center",
             justifyContent: "center",
           }}
         >
@@ -169,12 +145,8 @@ export default function ItemCard() {
               display: "flex",
               flexDirection: "column",
               boxShadow: "1px 1px 1px 1px rgba(167, 167, 167, 0.596)",
-              borderRadius: "5px",
-              // display: 'inline-block', /* Строчно-блочный элемент */
-                overflow: 'hidden',
-                height: "450px", width: "500px"
-               
-            }}
+              borderRadius: "5px", 
+              }}
           >
             <div style={{ height: "450px", width: "350px", borderRadius: '5px' }}>
               <img
@@ -183,8 +155,7 @@ export default function ItemCard() {
                 alt=""
                 style={{ width: '100%',
                 height: '100%',
-                objectFit: 'cover', borderRadius: '5px', transition: '1s', 
-                display: 'block'}}
+                objectFit: 'cover', borderRadius: '5px' }}
               />
             </div>
           </div>

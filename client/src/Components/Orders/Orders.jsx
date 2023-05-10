@@ -10,7 +10,7 @@ export default function Orders() {
 
   useEffect(() => {
     (async function () {
-      const response = await fetch("http://localhost:4000/display-orders", {
+      const response = await fetch("/display-orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

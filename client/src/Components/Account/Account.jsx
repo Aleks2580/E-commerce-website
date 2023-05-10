@@ -28,7 +28,7 @@ export default function Account() {
   const handlePassword = async (e) => {
     e.preventDefault();
     if (inputPas.password === inputPas.passwordRep) {
-      const res = await fetch('http://localhost:4000/edit-password', {
+      const res = await fetch('/edit-password', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export default function Account() {
 
   const handleEmail = async (e) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:4000/edit-email', {
+    const res = await fetch('/edit-email', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

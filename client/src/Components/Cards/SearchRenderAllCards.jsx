@@ -62,7 +62,7 @@ export default function SearchRenderAllCards() {
 
   const handler = async (event) => {
     setCheckTag({ ...checkTag, [event.target.name]: event.target.value });
-    // const response = await fetch("http://localhost:4000/check-item", {
+    // const response = await fetch("/check-item", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
