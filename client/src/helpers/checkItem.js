@@ -1,5 +1,5 @@
 export default async function checkItem(obj) {
-    const res = await fetch('http://localhost:4000/check-one-item', {
+    const res = await fetch('/check-one-item', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

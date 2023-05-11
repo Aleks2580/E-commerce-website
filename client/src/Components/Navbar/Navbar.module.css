@@ -1,9 +1,3 @@
-.navbar{
-  /* background-color: #b049ea; */
-  /* position: sticky;
-  top: 0; */
-}
-
 .header {
   margin-bottom: 10px;
   display: flex;
@@ -15,20 +9,18 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  /* color: #b700ff; */
 }
 
-.input {  
-    position: relative;
-    display: block;
-    width: 500px;
-    height: 100%;
-    padding: 11px 10px 11px 0;
-    line-height: 18px;
-    font-size: 13px;
-    border: 0;
-    font-family: arial;
-
+.input {
+  position: relative;
+  display: block;
+  width: 500px;
+  height: 100%;
+  padding: 11px 10px 11px 0;
+  line-height: 18px;
+  font-size: 13px;
+  border: 0;
+  font-family: arial;
 }
 
 .cartnum {
@@ -38,7 +30,6 @@
 
 .sign_login {
   display: flex;
-
 }
 
 .sign_join_my {
@@ -54,7 +45,6 @@
 .icon_heart {
   font-size: 35px;
   color: grey;
-
 }
 
 .icon_user {
@@ -64,7 +54,7 @@
 
 .devider {
   margin: 0 5px;
-  color:#e9e9e9
+  color: #e9e9e9;
 }
 
 .header_link {
@@ -73,14 +63,14 @@
 }
 
 .span_number {
-    min-width: 25px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: #e62e04;
-    color: #fff;
-    font-size: 12px;
+  min-width: 25px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #e62e04;
+  color: #fff;
+  font-size: 12px;
 }
 
 .banner_container a {
@@ -90,11 +80,10 @@
   text-indent: -9999rem;
   background-repeat: no-repeat;
   background-position: top;
-  background-image: url(./navbar.png)
-  /* background-image: url(https://ae01.alicdn.com/kf/Sf388682793dc4b8091b837b946a85011N.png_.webp) */
+  background-image: url(./navbar.png);
 }
 
-.banner_container {  
+.banner_container {
   height: 80px;
   overflow: hidden;
 }
@@ -108,13 +97,13 @@
 }
 
 .logo_base {
-  background-image: url('../../../public/img/alielbr.png');
-    background-repeat: no-repeat;
-    background-size: 135px auto;
-    display: block;
-    width: 166px;
-    height: 50px;
-    text-indent: -999em;
-    margin: 0 auto;
-    overflow: hidden;
+  background-image: url("../../../public/img/LogoMarket.png");
+  background-repeat: no-repeat;
+  background-size: 135px auto;
+  display: block;
+  width: 166px;
+  height: 50px;
+  text-indent: -999em;
+  margin: 0 auto;
+  overflow: hidden;
 }

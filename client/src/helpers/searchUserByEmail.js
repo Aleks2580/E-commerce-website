@@ -1,5 +1,5 @@
 export async function searchUserByEmail(email) {
-  const res = await fetch('http://localhost:4000/search-by-email', {
+  const res = await fetch('/search-by-email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

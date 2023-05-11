@@ -3,18 +3,14 @@ import React from "react";
 import OneCard from "./OneCard";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAllCardsFetch } from "../../helpers/getAllCardsFetch";
 import { Layout } from "antd";
 import { Space, Spin } from "antd";
 import { Pagination } from "antd";
-import { Checkbox, Col, Row } from "antd";
-import { Button, Form, Input, Radio } from "antd";
-import { v4 as uuidv4 } from "uuid";
-import { useLocation } from "react-router-dom";
+import { Form, Radio } from "antd";
 import filterMap from "../../helpers/filterMapFunction";
 import FormFilter from "./FormFilter";
 import { loadItempagination } from "../../helpers/loadItemPagination";
-const { Header, Footer, Sider, Content } = Layout;
+const { Footer, Sider, Content } = Layout;
 
 export default function AllCards() {
   const [allItems, setAllItems] = useState(null);
@@ -56,16 +52,9 @@ export default function AllCards() {
     }
   }, [current]);
 
-  // const paginationHandler = async (event) => {
-  //  const result = await loadItempagination({page: current, category: id})
-  //  setAllItems(result.items)
-  //  setFilterItems(result.items);
-  // };
-
   const handler = async (event) => {
     setCheckTag({ ...checkTag, [event.target.name]: event.target.value });
-    // console.log("checkTag", checkTag);
-    const response = await fetch("http://localhost:4000/filter-category", {
+    const response = await fetch("/filter-category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -164,7 +153,6 @@ export default function AllCards() {
               height: "697px",
               position: "sticky",
               top: "55px",
-              // widht: '50px'
             }}
           >
             <div className={styles.sider_div}>
@@ -182,8 +170,18 @@ export default function AllCards() {
                     <span className={styles.span}>Sort by price</span>
                   </div>
                   <Radio.Group>
-                    <Radio.Button style={{borderColor: 'black', color: 'black'}} onClick={sortLowHandler}>Low</Radio.Button>
-                    <Radio.Button style={{borderColor: 'black', color: 'black'}} onClick={sortHighHandler}>High</Radio.Button>
+                    <Radio.Button
+                      style={{ borderColor: "black", color: "black" }}
+                      onClick={sortLowHandler}
+                    >
+                      Low
+                    </Radio.Button>
+                    <Radio.Button
+                      style={{ borderColor: "black", color: "black" }}
+                      onClick={sortHighHandler}
+                    >
+                      High
+                    </Radio.Button>
                   </Radio.Group>
                 </Form.Item>
               </Form>
@@ -272,5 +270,3 @@ export default function AllCards() {
     spinner
   );
 }
-
-//fgdfgfdgfgfdg

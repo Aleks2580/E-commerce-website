@@ -10,9 +10,6 @@ import {
 import { Menu } from "antd";
 
 import React from "react";
-
-import AllCards from "../Cards/AllCards";
-
 import { useNavigate } from "react-router-dom";
 
 function getItem(label, key, icon, children, type) {

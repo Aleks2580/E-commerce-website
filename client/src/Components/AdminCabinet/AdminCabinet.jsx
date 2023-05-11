@@ -1,18 +1,12 @@
 import style from "./Admin.module.css";
 import React, { useEffect } from "react";
-import { Button, Form, Input, message } from "antd";
+import { Button, message } from "antd";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import getItemsFieldsForAdmin from "../../helpers/getItemsFieldsForAdmin";
 
 import addNewItemToDB from "../../helpers/addNewItemToDB";
 
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
 export default function AdminCabinet() {
   // const user = useSelector((state) => state.user);
@@ -54,7 +48,7 @@ export default function AdminCabinet() {
     });
     setTimeout(() => {
       message.success({
-        content: 'Your item have been added, thank you!',
+        content: 'Your item has been added, thank you!',
         key,
         duration: 2,
       });
@@ -70,20 +64,13 @@ export default function AdminCabinet() {
     <>
     {ok ? (
       <div style={{width: '530px', display: 'flex', justifyContent: 'center'}}>
-        
-        {/* <div style={{display: 'flex', justifyContent: 'center'}}>
-        <img style={{width: '30px', height: '30px'}} src='/img/ok.png' alt='ok'/>
-        </div> */}
-        <div style={{color: 'green', fontSize: '23px', marginLeft: '0px'}}>Your items have been added!</div>
+        <div style={{color: 'green', fontSize: '23px', marginLeft: '0px'}}>Your items has been added!</div>
       </div>
     ) : (
 <div style={{ display: "flex", flexDirection: "column", width: "300px", marginLeft: '110px' }}>
 <div style={{ display: "flex", justifyContent: 'center' }}>
   <div style={{ display: "flex", justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
   <div>
-    {/* <div>
-      <label for="cars">Choose a property: </label>
-    </div> */}
     <select style={{width: '300px', margin: '10px 0px', height: '26px', fontSize: '18px', textAlign: 'center'}} onChange={handler} name="tag1" id="cars">
       <option>Choose option</option>
       <option value="color">Color</option>
@@ -98,9 +85,6 @@ export default function AdminCabinet() {
       <input className={style.inpAll}  style={{borderRadius: '6px', width: '300px'}} onChange={handler2} name="first" type="text" />
     </div>
   </div>
-  {/* <div>
-    <label for="cars">Choose a property: </label>
-  </div> */}
   <div>
     <select style={{width: '300px', margin: '10px 0px', height: '26px', fontSize: '18px', textAlign: 'center'}} onChange={handler} name="cars" id="cars">
       <option>Choose option</option>

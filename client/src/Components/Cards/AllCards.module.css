@@ -3,29 +3,20 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
- 
-  margin-left: 20px;
- 
-  margin-bottom: 20px;
-  /* height: 347px; */
-  
-}
 
+  margin-left: 20px;
+
+  margin-bottom: 20px;
+}
 
 .sider_div {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
   padding-left: 20px;
-
-  
 }
 
 .span {
-
   font-size: 18px;
- 
 }
 
 .div_span {

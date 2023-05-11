@@ -1,6 +1,5 @@
 import styles from "../Navbar/Navbar.module.css";
 import {
-  AudioOutlined,
   ShoppingCartOutlined,
   HeartOutlined,
   UserOutlined,
@@ -15,16 +14,13 @@ import { changeBooleanStateAC } from "../../store/modal/actionCreators";
 import { checkItemFromInputInDB } from "../../helpers/checkItemFromInputInDB";
 import { useState } from "react";
 import { useEffect } from "react";
-import { addItem, initItem } from "../../store/cart/actionCreators";
+import { initItem } from "../../store/cart/actionCreators";
 
 const { Search } = Input;
 
-// const user = useSelector((state) => state.user);
+
 const Navbar = () => {
-  const [items, setItems] = useState(null);
-  const modal = useSelector((state) => state.modal);
   const user = useSelector((state) => state.user);
-  const user_id = useSelector((state) => state.user.id);
 
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -34,12 +30,11 @@ const Navbar = () => {
   const searchHandler = async (value) => {
     const { findItems, length } = await checkItemFromInputInDB(value);
     const searchResult = findItems;
-    console.log("searchResult", searchResult.length);
     navigate("/search", { state: { searchResult, length, searchWord: value } });
   };
 
   const handleLogout = async (e) => {
-    const res = await fetch("http://localhost:4000/logout", {
+    const res = await fetch("/logout", {
       method: "GET",
       credentials: "include",
     });
@@ -54,8 +49,8 @@ const Navbar = () => {
 
   useEffect(() => {
     (async function toBack() {
-      const response = await fetch("http://localhost:4000/add-item-to-cart", {
-        method: "DELETE", //SUPPOSED TO BE ANOTHER ROUTES, DID HAVE TIME TO WRITE ANOTHER ONE
+      const response = await fetch("/add-item-to-cart", {
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
@@ -74,10 +69,12 @@ const Navbar = () => {
       <div className={styles.banner_container}>
         <Link href="#" className={styles.banner}></Link>
       </div>
+      <div style={{backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '3'}}>
+      <div style={{marginLeft: '120px', }}>
       <Space className={styles.header} direction="vertical">
         <div className={styles.logo}>
           <Link to="/">
-            <span className={styles.logo_base}>AliElbrus</span>
+            <span className={styles.logo_base}>E-market</span>
           </Link>
         </div>
 
@@ -148,10 +145,12 @@ const Navbar = () => {
             )}
           </div>
           <div>
-            <span>My AliElbrus</span>
+            <span>My E-market</span>
           </div>
         </div>
       </Space>
+      </div>
+      </div>
     </>
   );
 };

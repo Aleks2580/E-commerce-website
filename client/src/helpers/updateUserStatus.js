@@ -1,5 +1,5 @@
 export default async function updateUserStatus(newStatus) {
-  const res = await fetch('http://localhost:4000/update-status', {
+  const res = await fetch('/update-status', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
-import { Button, Modal } from "antd";
-import React, { useState } from "react";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Modal } from "antd";
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
 import "antd/dist/antd.min.css";
 import style from "./Modal.module.css";
 import RegistrPage from "../Registr/Registr";
@@ -9,20 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeBooleanStateAC } from "../../store/modal/actionCreators";
 
 const ModalPage = () => {
-  // const [modal2Open, setModal2Open] = useState(false);
-  const modal = useSelector((state) => state.modal)
-  const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const modal = useSelector((state) => state.modal);
+  const dispatch = useDispatch();
 
-  const modalPageHandler = (arg) => {    
-    dispatch(changeBooleanStateAC(arg))
-  }
-
+  const modalPageHandler = (arg) => {
+    dispatch(changeBooleanStateAC(arg));
+  };
 
   return (
     <div className={style.modaldiv}>
-      <p className={style.adecor}
-        
+      <p
+        className={style.adecor}
         type="primary"
         onClick={() => modalPageHandler(true)}
       >
@@ -32,11 +29,10 @@ const ModalPage = () => {
       <Modal
         className={style.modal}
         footer={null}
-        cancelButtonProps={{ style: { display: 'none' } }}
-        okButtonProps={{ style: { display: 'none' } }}
+        cancelButtonProps={{ style: { display: "none" } }}
+        okButtonProps={{ style: { display: "none" } }}
         centered
         open={modal}
-        // onOk={() => setModal2Open(false)}
         onCancel={() => modalPageHandler(false)}
       >
         <div className={style.allLinks}>

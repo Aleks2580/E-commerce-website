@@ -1,17 +1,7 @@
 import React, { useState } from "react";
-import Categories from "../Categories/Categories";
 import { Layout, Space, Spin, Carousel } from "antd";
-import SliderCarousel from "../Carousel/Carousel";
-import Person from "../Person/Person";
-import {
-  VideoCameraOutlined,
-  UploadOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
-import { Breadcrumb, Menu } from "antd";
-import WishList from "../WishList/WishList";
-import Account from "../Account/Account";
-import { Link, Route, Routes, Outlet } from "react-router-dom";
+import { Menu } from "antd";
+import { Link, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -19,7 +9,6 @@ const contentStyle = {
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  // color: "#fff",
   lineHeight: "160px",
   textAlign: "center",
   background: "gray",
@@ -30,7 +19,7 @@ export default function SettingsPerson() {
   const [itemsSlide, setItemsSlide] = useState({});
   const [findItem, setFindItem] = useState(false);
   const user = useSelector((state) => state.user);
-  const { Header, Footer, Sider, Content } = Layout;
+  const { Sider, Content } = Layout;
 
   const spinner = (
     <div style={{ display: "flex", justifyContent: "center", height: "300px" }}>
@@ -50,7 +39,7 @@ export default function SettingsPerson() {
 
   useEffect(() => {
     (async function () {
-      const userFindBack = await fetch("http://localhost:4000/find-slider", {
+      const userFindBack = await fetch("/find-slider", {
         method: "GET",
         credentials: "include",
       });
@@ -61,11 +50,6 @@ export default function SettingsPerson() {
       }
     })();
   }, []);
-
-  // console.log("slide", itemsSlide);
-
-  // const i = Math.floor(Math.random() * (itemsSlide.length - 1) + 1);
-  // console.log('123', i)
 
   setTimeout(() => {
     setLoading(false);
@@ -103,7 +87,7 @@ export default function SettingsPerson() {
             collapsedWidth="0"
             onBreakpoint={(broken) => {}}
             onCollapse={(collapsed, type) => {
-              console.log(collapsed, type);
+            
             }}
           >
             <div className="logo" />
@@ -149,8 +133,7 @@ export default function SettingsPerson() {
                 boxShadow: "1px 1px 1px 1px rgba(167, 167, 167, 0.596)",
               }}
             >
-              <div style={{ display: "flex", width: "180px",
-                    height: "200px", }}>
+              <div style={{ display: "flex", width: "180px", height: "200px" }}>
                 <div
                   style={{
                     backgroundColor: "red",
@@ -159,20 +142,19 @@ export default function SettingsPerson() {
                     marginTop: "11px",
                   }}
                 >
-                  {/* //! Логика слайдера */}
                   {itemsSlide.length ? (
                     <Link to="/category/13">
                       <Carousel autoplay>
-                        <div style={{width: '180px', height: '180px'}}>
+                        <div style={{ width: "180px", height: "180px" }}>
                           <img src={itemsSlide[0].image} style={contentStyle} />
                         </div>
-                        <div style={{width: '180px', height: '180px'}}>
+                        <div style={{ width: "180px", height: "180px" }}>
                           <img src={itemsSlide[1].image} style={contentStyle} />
                         </div>
-                        <div style={{width: '180px', height: '180px'}}>
+                        <div style={{ width: "180px", height: "180px" }}>
                           <img src={itemsSlide[2].image} style={contentStyle} />
                         </div>
-                        <div style={{width: '180px', height: '180px'}}>
+                        <div style={{ width: "180px", height: "180px" }}>
                           <img src={itemsSlide[3].image} style={contentStyle} />
                         </div>
                       </Carousel>

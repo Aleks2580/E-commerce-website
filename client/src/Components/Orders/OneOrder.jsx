@@ -1,9 +1,3 @@
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,12 +5,10 @@ import { useNavigate } from "react-router-dom";
 const { Meta } = Card;
 
 export default function OneOrder({ el }) {
-
   const navigate = useNavigate();
 
   function clickId() {
-    console.log(el.id);
-    navigate('/item-card', {state: {el}})
+    navigate("/item-card", { state: { el } });
   }
 
   return (
@@ -28,7 +20,13 @@ export default function OneOrder({ el }) {
       >
         <>
           <Meta
-            avatar={<Avatar onClick={clickId} style={{ cursor: 'pointer' }} src={el["Item.image"]} />}
+            avatar={
+              <Avatar
+                onClick={clickId}
+                style={{ cursor: "pointer" }}
+                src={el["Item.image"]}
+              />
+            }
             title={el["Item.title"]}
             description={"$" + el["Item.price"]}
           />

@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import styles from "./OneCard.module.css";
-import { addItem, deleteItem } from "../../store/cart/actionCreators";
+import { addItem } from "../../store/cart/actionCreators";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  EditOutlined,
-  HeartOutlined,
-  BarsOutlined,
-  EllipsisOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { Avatar, Card } from "antd";
+import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
-const { Meta } = Card;
 
 export default function SearchRenderOneCard({ el }) {
   const navigate = useNavigate();
@@ -24,39 +17,31 @@ export default function SearchRenderOneCard({ el }) {
   const likeHandler = async (event) => {
     if (!likeFill) {
       setLikeFill(!likeFill);
-      console.log("like!!");
-      const response = await fetch(
-        "http://localhost:4000/add-item-to-wish-list",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ user_id, item_id: el.id }),
-          credentials: "include",
-        }
-      );
+      const response = await fetch("/add-item-to-wish-list", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id, item_id: el.id }),
+        credentials: "include",
+      });
     }
 
     if (likeFill) {
       setLikeFill(!likeFill);
-      const response = await fetch(
-        "http://localhost:4000/delete-item-from-wish-list",
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ user_id, item_id: el.id }),
-          credentials: "include",
-        }
-      );
+      const response = await fetch("/delete-item-from-wish-list", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id, item_id: el.id }),
+        credentials: "include",
+      });
     }
   };
 
   const cartHandler = async (event) => {
-    //setItemId(+event.target.parentNode.parentNode.id);
-    const response = await fetch("http://localhost:4000/add-item-to-cart", {
+    const response = await fetch("/add-item-to-cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,12 +49,12 @@ export default function SearchRenderOneCard({ el }) {
       body: JSON.stringify({ user_id, item_id: el.id }),
       credentials: "include",
     });
-   dispatch(addItem(1));
+    dispatch(addItem(1));
   };
-  
+
   function clickId() {
-  navigate('/item-card', {state: {el}})
-}
+    navigate("/item-card", { state: { el } });
+  }
   return (
     <Card
       key={el.id}
@@ -81,22 +66,21 @@ export default function SearchRenderOneCard({ el }) {
         boxShadow: "1px 1px 1px 1px rgba(167, 167, 167, 0.596)",
       }}
       cover={
-        <div style={{width: '170px', height: '210px'}}>
-        <img
-        onClick={clickId}
-          className={styles.image}
-          alt="Items_image"
-          style={{
-            borderRadius: "5px 5px 0px 0px",
+        <div style={{ width: "170px", height: "210px" }}>
+          <img
+            onClick={clickId}
+            className={styles.image}
+            alt="Items_image"
+            style={{
+              borderRadius: "5px 5px 0px 0px",
 
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            cursor: 'pointer'
-
-          }}
-          src={el.image}
-        />
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              cursor: "pointer",
+            }}
+            src={el.image}
+          />
         </div>
       }
     >
@@ -133,5 +117,4 @@ export default function SearchRenderOneCard({ el }) {
       </div>
     </Card>
   );
-
 }

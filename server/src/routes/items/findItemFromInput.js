@@ -1,10 +1,10 @@
-const router = require('express').Router();
-const { Op } = require('sequelize');
-const { Item, WishList } = require('../../../db/models');
+const router = require("express").Router();
+const { Op } = require("sequelize");
+const { Item, WishList } = require("../../../db/models");
 
-router.post('/', async (req, res) => {
-  const { value, check,} = req.body;
-  try {    
+router.post("/", async (req, res) => {
+  const { value, check } = req.body;
+  try {
     const findItems = await Item.findAll({
       where: {
         title: {
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
       offset: 0,
       limit: 10,
     });
-    
+
     const findItemsLength = await Item.findAll({
       where: {
         title: {
@@ -26,9 +26,9 @@ router.post('/', async (req, res) => {
       },
       raw: true,
     });
-    res.json({findItems, length: findItemsLength.length});
+    res.json({ findItems, length: findItemsLength.length });
   } catch (error) {
-    console.log('error: ', error);    
+    res.send(`${error}`);
   }
 });
 

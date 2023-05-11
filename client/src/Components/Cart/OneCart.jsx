@@ -1,15 +1,10 @@
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
-import { initItem, addItem } from "../../store/cart/actionCreators";
+import { useNavigate } from "react-router-dom";
+import { initItem } from "../../store/cart/actionCreators";
 const { Meta } = Card;
 
 export default function OneCart({ el }) {
@@ -19,8 +14,7 @@ export default function OneCart({ el }) {
   const [display, setDisplay] = useState(true);
 
   const deleteHandler = async (event) => {
-    console.log("click!!!!");
-    const response = await fetch("http://localhost:4000/display-cart", {
+    const response = await fetch("/display-cart", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -36,9 +30,8 @@ export default function OneCart({ el }) {
   };
 
   const redirectHandler = () => {
-    console.log('el in cart', el);
-    navigate('/item-card', {state: {el}})
-  } 
+    navigate("/item-card", { state: { el } });
+  };
 
   return (
     <>
@@ -46,12 +39,17 @@ export default function OneCart({ el }) {
         <Card
           style={{
             width: 240,
-
           }}
         >
           <>
             <Meta
-              avatar={<Avatar onClick={redirectHandler} style={{cursor: 'pointer' }} src={el["Item.image"]} />}
+              avatar={
+                <Avatar
+                  onClick={redirectHandler}
+                  style={{ cursor: "pointer" }}
+                  src={el["Item.image"]}
+                />
+              }
               title={el["Item.title"]}
               description={"$" + el["Item.price"]}
             />

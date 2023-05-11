@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import style from "../Registr/Registr.module.css";
-import { getUser } from "../../store/user/actionCreators";
-import { changeBooleanStateAC } from "../../store/modal/actionCreators";
-import { initItem, addItem } from "../../store/cart/actionCreators";
+import { initItem } from "../../store/cart/actionCreators";
 import { Radio } from "antd";
 
 const AdressForm = () => {
@@ -21,9 +19,8 @@ const AdressForm = () => {
   };
 
   const orderHandler = async () => {
-
-    const key = 'updatable';
-    const response = await fetch("http://localhost:4000/create-order", {
+    const key = "updatable";
+    const response = await fetch("/create-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,18 +30,18 @@ const AdressForm = () => {
     });
     const result = await response.json();
     dispatch(initItem(result.cart.length));
-    
+
     message.loading({
-      content: 'Processing...',
+      content: "Processing...",
       key,
     });
     setTimeout(() => {
       message.success({
-        content: 'Your order is accepted, thank you!!',
+        content: "Your order is accepted, thank you!!",
         key,
         duration: 2,
       });
-      navigate('../orders')
+      navigate("../orders");
     }, 2000);
   };
 
@@ -55,8 +52,6 @@ const AdressForm = () => {
       initialValues={{
         remember: true,
       }}
-      //   onFinish={onFinish}
-      //   onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <div

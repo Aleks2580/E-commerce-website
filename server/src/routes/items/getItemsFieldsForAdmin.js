@@ -1,13 +1,12 @@
-const router = require('express').Router();
-// const { Category } = require('../../../db/models');
-const { Item } = require('../../../db/models');
+const router = require("express").Router();
+const { Item } = require("../../../db/models");
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const getFields = await Item.findByPk(1, { raw: true });
-    res.json(getFields);    
+    res.json(getFields);
   } catch (error) {
-    console.log('error: ', error);    
+    console.log("error: ", error);
   }
 });
 

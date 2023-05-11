@@ -1,24 +1,13 @@
-import style from '../Registr/Registr.module.css';
-import { AudioOutlined } from '@ant-design/icons';
-import { Input, Space, Avatar, Button } from 'antd';
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { searchUserByEmail } from '../../helpers/searchUserByEmail';
-import updateUserStatus from '../../helpers/updateUserStatus';
-import { useEffect } from 'react';
+import style from "../Registr/Registr.module.css";
+import { Input, Space, Avatar, Button } from "antd";
+import React, { useState } from "react";
+import { searchUserByEmail } from "../../helpers/searchUserByEmail";
+import updateUserStatus from "../../helpers/updateUserStatus";
+import { useEffect } from "react";
 const { Search } = Input;
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
-
 export default function AdminPanel() {
-  const [findUser, setFindUser] = useState({ email: '', status: '' });
+  const [findUser, setFindUser] = useState({ email: "", status: "" });
   const [notFindUser, setNotFindUser] = useState(false);
   const [okFindUser, setOkFindUser] = useState(false);
   const [newStatus, setNewStatus] = useState();
@@ -26,7 +15,7 @@ export default function AdminPanel() {
 
   const onSearch = async (value) => {
     const result = await searchUserByEmail(value);
-    if (result === 'NO') {
+    if (result === "NO") {
       setNotFindUser(true);
       setTimeout(() => {
         setNotFindUser(false);
@@ -41,14 +30,14 @@ export default function AdminPanel() {
 
   const saveStatusHandler = async () => {
     const resultUpdate = await updateUserStatus(newStatus);
-    if (resultUpdate.result === 'success') {
+    if (resultUpdate.result === "success") {
       setFindUser({ ...findUser, status: resultUpdate.newStatus });
       setTimeout(() => {
         setUpdateResult(null);
       }, 3000);
       setUpdateResult(resultUpdate.result);
     } else {
-      setUpdateResult('error');
+      setUpdateResult("error");
     }
   };
 
@@ -59,10 +48,10 @@ export default function AdminPanel() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center',  }}>
-      <div style={{ display: 'flex', width: '300px' }}>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ display: "flex", width: "300px" }}>
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             Enter email:
           </div>
           <Space direction="vertical">
@@ -77,61 +66,71 @@ export default function AdminPanel() {
           {notFindUser ? <div>User not found</div> : null}
           {okFindUser ? (
             <>
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <div style={{ display: "flex", justifyContent: "center" }}>
                 Current status: {findUser.status}
               </div>
               <div
                 style={{
-                  display: 'flex',
-                  marginTop: '10px',
-                  justifyContent: 'center',
+                  display: "flex",
+                  marginTop: "10px",
+                  justifyContent: "center",
                 }}
               >
                 <Avatar
                   style={{
-                    backgroundColor: '#b700ff',
+                    backgroundColor: "#b700ff",
                   }}
                 >
                   {findUser.login[0].toUpperCase()}
                 </Avatar>
-                <div style={{ margin: '5px', fontSize: '20px' }}>
+                <div style={{ margin: "5px", fontSize: "20px" }}>
                   {findUser.login}
                 </div>
               </div>
               <div>
                 <div>
-                <select
-                  style={{
-                    fontSize: '17px',
-                    width: '300px',
-                    height: '30px',
-                    marginBottom: '10px',
-                    borderRadius: '5px',
-                    textAlign: 'center',
-                    display: 'flex',
-                    justifyContent: 'center'
-                  }}
-                  onChange={updateStatusHandler}
-                  name="tag1"
-                  id="cars"
-                >
-                  <option>Choose a new role</option>
-                  <option value="buyer">Buyer</option>
-                  <option value="seller">Seller</option>
-                  <option value="admin">Admin</option>
-                </select>
+                  <select
+                    style={{
+                      fontSize: "17px",
+                      width: "300px",
+                      height: "30px",
+                      marginBottom: "10px",
+                      borderRadius: "5px",
+                      textAlign: "center",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    onChange={updateStatusHandler}
+                    name="tag1"
+                    id="cars"
+                  >
+                    <option>Choose a new role</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                    <option value="admin">Admin</option>
+                  </select>
 
-                {setUpdateResult ? <div style={{color: 'green', display: 'flex', justifyContent: 'center'}}>{updateResult}</div> : null}
-                <Button
-                  className={style.btnReg}
-                  onClick={saveStatusHandler}
-                  style={{ width: '300px', height: '40px' }}
-                  type="primary"
-                  shape="round"
-                  htmlType="submit"
-                >
-                  Save
-                </Button>
+                  {setUpdateResult ? (
+                    <div
+                      style={{
+                        color: "green",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {updateResult}
+                    </div>
+                  ) : null}
+                  <Button
+                    className={style.btnReg}
+                    onClick={saveStatusHandler}
+                    style={{ width: "300px", height: "40px" }}
+                    type="primary"
+                    shape="round"
+                    htmlType="submit"
+                  >
+                    Save
+                  </Button>
                 </div>
               </div>
             </>

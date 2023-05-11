@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Item, Cart } = require('../../../db/models');
+const { Cart } = require('../../../db/models');
 
 router.post('/', async (req, res) => {
   

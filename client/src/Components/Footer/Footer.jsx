@@ -10,7 +10,6 @@ import {
   TwitterOutlined,
   FacebookFilled,
 } from "@ant-design/icons";
-import { getStatusClassNames } from "antd/lib/_util/statusUtils";
 import React from "react";
 import styles from "../Footer/Footer.module.css";
 
@@ -140,7 +139,7 @@ export default function FooterPage() {
         className="footer-copywrite"
       >
         <div style={{ height: "25px" }} className="container">
-          ©️2022 Ali-Elbrus. All rights reserved.
+          ©️2022 E-market. All rights reserved.
         </div>
       </div>
     </section>

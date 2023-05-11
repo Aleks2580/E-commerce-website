@@ -1,17 +1,10 @@
 import React from "react";
 import styles from "../Cards/OneCard.module.css";
-import { initItem, addItem } from "../../store/cart/actionCreators";
+import { initItem } from "../../store/cart/actionCreators";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  EditOutlined,
-  HeartOutlined,
-  BarsOutlined,
-  EllipsisOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { Avatar, Card } from "antd";
+import { HeartOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { Card } from "antd";
 import { useState } from "react";
-const { Meta } = Card;
 
 export default function OneWishList({ el }) {
   const dispatch = useDispatch();
@@ -22,32 +15,25 @@ export default function OneWishList({ el }) {
 
   const likeHandler = async (event) => {
     setLikeFill(!likeFill);
-    const response = await fetch(
-      "http://localhost:4000/delete-item-from-wish-list",
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user_id, item_id: el["Item.id"] }),
-        credentials: "include",
-      }
-    );
-    console.log("UNLIKE");
+    const response = await fetch("/delete-item-from-wish-list", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id, item_id: el["Item.id"] }),
+      credentials: "include",
+    });
   };
 
   const cartHandler = async (event) => {
-    const response = await fetch(
-      "http://localhost:4000/delete-item-from-wish-list-cart",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user_id, item_id: el["Item.id"] }),
-        credentials: "include",
-      }
-    );
+    const response = await fetch("/delete-item-from-wish-list-cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id, item_id: el["Item.id"] }),
+      credentials: "include",
+    });
     const result = await response.json();
     dispatch(initItem(result.cart.length));
   };
@@ -63,18 +49,18 @@ export default function OneWishList({ el }) {
         boxShadow: "1px 1px 1px 1px rgba(167, 167, 167, 0.596)",
       }}
       cover={
-        <div style={{width: '170px', height: '210px'}}>
-        <img
-          className={styles.image}
-          alt="Items_image"
-          style={{
-            borderRadius: "5px 5px 0px 0px",
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-          src={el["Item.image"]}
-        />
+        <div style={{ width: "170px", height: "210px" }}>
+          <img
+            className={styles.image}
+            alt="Items_image"
+            style={{
+              borderRadius: "5px 5px 0px 0px",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+            src={el["Item.image"]}
+          />
         </div>
       }
     >

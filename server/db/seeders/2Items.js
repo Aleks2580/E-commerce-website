@@ -2660,7 +2660,7 @@ module.exports = {
       },
       {
         price: 10.75,
-        image: "http://localhost:4000/img/EGB7.jpg",
+        image: "/img/EGB7.jpg",
         title: "Elbrus T-shirts man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'white',
@@ -2675,7 +2675,7 @@ module.exports = {
       },
       {
         price: 10.75,
-        image: "http://localhost:4000/img/EGB8.jpg",
+        image: "/img/EGB8.jpg",
         title: "Elbrus bug T-shirts man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'white',
@@ -2690,7 +2690,7 @@ module.exports = {
       },
       {
         price: 20.50,
-        image: "http://localhost:4000/img/EBC-sweatshirt.jpg",
+        image: "/img/EBC-sweatshirt.jpg",
         title: "Elbrus bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'purple',
@@ -2705,7 +2705,7 @@ module.exports = {
       },
       {
         price: 18.50,
-        image: "http://localhost:4000/img/EGB9.jpg",
+        image: "/img/EGB9.jpg",
         title: "Elbrus hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'grey',
@@ -2720,7 +2720,7 @@ module.exports = {
       },
       {
         price: 18.40,
-        image: "http://localhost:4000/img/ECB1.png",
+        image: "/img/ECB1.png",
         title: "Elbrus hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'black',
@@ -2735,7 +2735,7 @@ module.exports = {
       },
       {
         price: 10.50,
-        image: "http://localhost:4000/img/ECB2.png",
+        image: "/img/ECB2.png",
         title: "Elbrus socks hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'purple',
@@ -2750,7 +2750,7 @@ module.exports = {
       },
       {
         price: 10.50,
-        image: "http://localhost:4000/img/ECB3.png",
+        image: "/img/ECB3.png",
         title: "Elbrus socks hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'black',
@@ -2765,7 +2765,7 @@ module.exports = {
       },
       {
         price: 10.50,
-        image: "http://localhost:4000/img/ECB4.png",
+        image: "/img/ECB4.png",
         title: "Elbrus socks hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'purple',
@@ -2780,7 +2780,7 @@ module.exports = {
       },
       {
         price: 9.20,
-        image: "http://localhost:4000/img/EGB5.jpg",
+        image: "/img/EGB5.jpg",
         title: "Elbrus mag hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'purple',
@@ -2795,7 +2795,7 @@ module.exports = {
       },
       {
         price: 9.35,
-        image: "http://localhost:4000/img/EGB6.jpg",
+        image: "/img/EGB6.jpg",
         title: "Elbrus mag hudi bug sweeters hudi man women Home Modeling Ornaments Soy Candle Wedding Birthday Party Decor Props program code bootcamp",
         size: null,
         color:'purple',

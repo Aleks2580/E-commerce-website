@@ -1,25 +1,11 @@
 import React from "react";
-import styles from "./BottomMainBlock.module.css";
-import { addItem } from "../../store/cart/actionCreators";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  EditOutlined,
-  HeartOutlined,
-  BarsOutlined,
-  EllipsisOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { Avatar, Card } from "antd";
-import { useState } from "react";
+import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
-
-const { Meta } = Card;
 
 export default function BottomMainBlock({ el }) {
   const navigate = useNavigate();
 
   function clickId() {
-    console.log(el.id);
     navigate("/item-card", { state: { el } });
   }
 
@@ -44,7 +30,6 @@ export default function BottomMainBlock({ el }) {
           <div style={{ width: "130px", height: "150px" }}>
             <img
               onClick={clickId}
-              className={styles.image}
               alt="Items_image"
               style={{
                 cursor: "pointer",
@@ -59,17 +44,11 @@ export default function BottomMainBlock({ el }) {
         </div>
       }
     >
-      <div
-        style={{ display: "flex", justifyContent: "center" }}
-        className={styles.card_bottom}
-      >
-        <span
-          style={{ fontWeight: "bold", fontSize: "20px" }}
-          className={styles.price}
-        >
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <span style={{ fontWeight: "bold", fontSize: "20px" }}>
           {el.price} $
         </span>
-        <div name="heart" className={styles.heart}></div>
+        <div name="heart"></div>
       </div>
     </Card>
   );

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getUser } from "../../store/user/actionCreators";
 import style from "../Registr/Registr.module.css";
-import { changeBooleanStateAC } from "../../store/modal/actionCreators";
 
 const LoginPage = () => {
   const [input, setInput] = useState({ email: "", password: "" });
@@ -19,7 +18,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/login", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,30 +30,19 @@ const LoginPage = () => {
     if (toJson === "PasswordNotDone") {
       setPasswordTrue(true);
       setTimeout(() => {
-        setPasswordTrue(false)
-      }, 3000)
-      // alert("Incorrect password");
-    } 
-    else if (toJson === "EmailNotDone") {
+        setPasswordTrue(false);
+      }, 3000);
+    } else if (toJson === "EmailNotDone") {
       setEmailTrue(true);
       setTimeout(() => {
-        setEmailTrue(false)
-      }, 3000)
-      // alert("Incorrect email");
-    } 
-    else {
+        setEmailTrue(false);
+      }, 3000);
+    } else {
       dispatch(getUser(toJson));
-      // dispatch(changeBooleanStateAC(false))
       navigate("/");
     }
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
   return (
     <Form
       name="basic"
@@ -62,8 +50,6 @@ const LoginPage = () => {
       initialValues={{
         remember: true,
       }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <div
@@ -82,7 +68,8 @@ const LoginPage = () => {
             },
           ]}
         >
-          <Input placeholder="Email"
+          <Input
+            placeholder="Email"
             name="email"
             onChange={inputHandler}
             style={{ width: "300px", borderRadius: "5px" }}
@@ -90,7 +77,6 @@ const LoginPage = () => {
         </Form.Item>
 
         <Form.Item
-
           name="password"
           rules={[
             {
@@ -107,11 +93,23 @@ const LoginPage = () => {
           />
         </Form.Item>
         {passwordTrue ? (
-          <div style={{display: 'flex', justifyContent: 'center', color: 'red'}}>Incorrect password</div>
-        ) : (<></>)}
+          <div
+            style={{ display: "flex", justifyContent: "center", color: "red" }}
+          >
+            Incorrect password
+          </div>
+        ) : (
+          <></>
+        )}
         {emailTrue ? (
-          <div style={{display: 'flex', justifyContent: 'center', color: 'red'}}>Incorrect email</div>
-        ) : (<></>)}
+          <div
+            style={{ display: "flex", justifyContent: "center", color: "red" }}
+          >
+            Incorrect email
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       <Button
         className={style.btnReg}

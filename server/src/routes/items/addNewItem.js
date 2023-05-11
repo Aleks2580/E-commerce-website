@@ -1,12 +1,12 @@
-const router = require('express').Router();
-const { Item } = require('../../../db/models');
+const router = require("express").Router();
+const { Item } = require("../../../db/models");
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   const { newItem } = req.body;
   try {
-    await Item.create(newItem);    
+    await Item.create(newItem);
   } catch (error) {
-    console.log('error: ', error);    
+    res.send(`${error}`);
   }
   res.end();
 });
